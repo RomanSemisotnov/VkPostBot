@@ -12,5 +12,5 @@ public class MessageHandlerController {
     public String execute() {
         return "ok";
     }
-    
+
 }
