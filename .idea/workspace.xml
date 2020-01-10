@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="">
+    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/VkCallbackRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/MessageHandlerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/MessageHandlerController.java" afterDir="false" />
     </list>
@@ -83,7 +84,7 @@
       <workItem from="1578600667155" duration="1446000" />
       <workItem from="1578603138097" duration="1441000" />
       <workItem from="1578648794442" duration="119000" />
-      <workItem from="1578651191025" duration="4230000" />
+      <workItem from="1578651191025" duration="5026000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1578652793740</created>
@@ -113,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578655509996</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="commit">
+      <created>1578656035893</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578656035893</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
