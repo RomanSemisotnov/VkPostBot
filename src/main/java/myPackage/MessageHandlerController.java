@@ -23,7 +23,7 @@ public class MessageHandlerController {
 
         int user_id = vkCallbackRequest.getBodyMessage().getUser_id();
         IncommingMessage lastUserMessage = incommingMessageService.getLastByUserId(user_id);
-        
+
 
         return vkCallbackRequest;
     }
