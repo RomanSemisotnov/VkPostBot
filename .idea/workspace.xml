@@ -2,9 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/VkCallbackRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/AbstractDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/IncommingMessageDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/VkConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/IncommingMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/interceptors/VkSecretKeyInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/IncommingMessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/migrations/V1_0__create_tables.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/flyway.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vkAuth.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/MessageHandlerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/MessageHandlerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/VkCallbackRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/VkCallbackRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/HibernateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/HibernateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,9 +40,24 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTTP Request" />
         <option value="Class" />
       </list>
     </option>
@@ -38,8 +78,16 @@
   <component name="ProjectId" id="1WAmEujmSrCk0zIVdXrQtw5qQxY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowREST Client.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTTP Request" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Nfcuruanalitycs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -50,14 +98,177 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="myPackage.config" />
+      <recent name="myPackage.Entities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\java_project\VkPostBot\src\main" />
+      <recent name="C:\java_project\VkPostBot\src\main\java\myPackage" />
+      <recent name="C:\java_project\VkPostBot\src\main\resources\migrations" />
       <recent name="C:\java_project\VkPostBot\src\main\resources" />
+      <recent name="C:\java_project\VkPostBot\src\main\db\migrations" />
     </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Connection: keep-alive&#10;Accept: text/html&#10;Accept-Encoding: gzip, deflate&#10;Accept-Language: ru-Ru;&#10;&#10;&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="" />
+                <option name="value" value="" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Connection: keep-alive Accept: text/html Accept-Encoding: gzip, deflate Accept-Language: ru-Ru;    {     &quot;type&quot;: &quot;message_new&quot;,     &quot;object&quot;: {         &quot;id&quot;: 11,         &quot;date&quot;: 1578651828,         &quot;out&quot;: 0,         &quot;user_id&quot;: 134881843,         &quot;read_state&quot;: 0,         &quot;title&quot;: &quot;&quot;,         &quot;body&quot;: &quot;3333333333333&quot;,         &quot;owner_ids&quot;: []     },     &quot;group_id&quot;: 190703481,     &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,     &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot; }" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Connection: keep-alive&#10;Accept: text/html&#10;Accept-Encoding: gzip, deflate&#10;Accept-Language: ru-Ru,en;q=0.9,es;q=0.8&#10;&#10;&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Connection: keep-alive&#10;Accept: text/html&#10;Accept-Encoding: gzip, deflate&#10;Accept-Language: en-US,en;q=0.9,es;q=0.8&#10;&#10;&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU;&#10;Content-Type: text/xml; charset=utf-8;&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU;&#10;Content-Type: text/html; charset=utf-8;&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU;&#10;Content-Type: text/html;&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU;&#10;Content-Type: text/html;&#10;DataServiceVersion: 2.0;&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU;&#10;Content-Type: application/json;&#10;DataServiceVersion: 2.0;&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU;&#10;Content-Type: application/json;&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="DELETE" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU&#10;&#10;{&#10;    &quot;type&quot;: &quot;message_new&quot;,&#10;    &quot;object&quot;: {&#10;        &quot;id&quot;: 11,&#10;        &quot;date&quot;: 1578651828,&#10;        &quot;out&quot;: 0,&#10;        &quot;user_id&quot;: 134881843,&#10;        &quot;read_state&quot;: 0,&#10;        &quot;title&quot;: &quot;&quot;,&#10;        &quot;body&quot;: &quot;3333333333333&quot;,&#10;        &quot;owner_ids&quot;: []&#10;    },&#10;    &quot;group_id&quot;: 190703481,&#10;    &quot;event_id&quot;: &quot;3ed20c4aacd9455271c878f2a51957ee69b3021c&quot;,&#10;    &quot;secret&quot;: &quot;ZSRLl30joFlytrKvcSMNYYEmW7OKvowloRB5F4Yk&quot;&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Accept-Language: ru-RU" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Connection: keep-alive&#10;Accept-Language: ru-RU" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="Connection: keep-alive&#10;Content-Type: application/json; charset=UTF-8&#10;Accept-Language: ru-RU" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -69,6 +280,42 @@
           <option name="name" value="StatusDashboardGroupingRule" />
         </RuleState>
       </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="CallbackRequest#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/CallbackRequest.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="rest-api_3#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_3.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="VkPostBot" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="myPackage.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.rest-api_3#1" />
+        <item itemvalue="HTTP Request.CallbackRequest#1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1b012207" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -84,7 +331,20 @@
       <workItem from="1578600667155" duration="1446000" />
       <workItem from="1578603138097" duration="1441000" />
       <workItem from="1578648794442" duration="119000" />
-      <workItem from="1578651191025" duration="5026000" />
+      <workItem from="1578651191025" duration="6373000" />
+      <workItem from="1578659677766" duration="331000" />
+      <workItem from="1578664099262" duration="3098000" />
+      <workItem from="1578676856075" duration="1778000" />
+      <workItem from="1578739675911" duration="8047000" />
+      <workItem from="1578753856172" duration="192000" />
+      <workItem from="1578754246813" duration="17845000" />
+      <workItem from="1578773320739" duration="5511000" />
+      <workItem from="1578831689710" duration="4824000" />
+      <workItem from="1578931156207" duration="4464000" />
+      <workItem from="1579000944544" duration="2466000" />
+      <workItem from="1579019445806" duration="24175000" />
+      <workItem from="1579176424637" duration="494000" />
+      <workItem from="1579188817057" duration="18705000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1578652793740</created>
@@ -121,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578656035893</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="commit">
+      <created>1578656834585</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1578656834585</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
