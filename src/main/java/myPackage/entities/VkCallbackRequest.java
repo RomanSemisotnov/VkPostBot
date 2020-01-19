@@ -2,9 +2,11 @@ package myPackage.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import myPackage.deserializers.BodyMessageDeserializer;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class VkCallbackRequest {
@@ -40,14 +42,12 @@ public class VkCallbackRequest {
         this.secret = secret;
     }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public class BodyMessage {
-        @JsonProperty("from_id")
+    @JsonDeserialize(using = BodyMessageDeserializer.class)
+    public static class BodyMessage {
         private int user_id;
-        @JsonProperty("text")
         private String text;
-        @JsonProperty("attachments")
-        private List<Map<String, Object>> attachments;
+
+        private List<VkAttachment> attachments = new ArrayList<>();
 
         public int getUser_id() {
             return user_id;
@@ -65,11 +65,11 @@ public class VkCallbackRequest {
             this.text = text;
         }
 
-        public List<Map<String, Object>> getAttachments() {
+        public List<VkAttachment> getAttachments() {
             return attachments;
         }
 
-        public void setAttachments(List<Map<String, Object>> attachments) {
+        public void setAttachments(List<VkAttachment> attachments) {
             this.attachments = attachments;
         }
 
