@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="commit" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,7 +331,7 @@
       <workItem from="1579771846471" duration="224000" />
       <workItem from="1579790406864" duration="27924000" />
       <workItem from="1579852047167" duration="1129000" />
-      <workItem from="1579853575347" duration="524000" />
+      <workItem from="1579853575347" duration="768000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1578652793740</created>
@@ -412,7 +410,21 @@
       <option name="project" value="LOCAL" />
       <updated>1579853934317</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="commit">
+      <created>1579854167582</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1579854167582</updated>
+    </task>
+    <task id="LOCAL-00013" summary="commit">
+      <created>1579854295627</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1579854295627</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
