@@ -4,13 +4,6 @@ CREATE TABLE IF NOT EXISTS users
     vk_id integer UNIQUE NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS incomming_messages
-(
-    id      bigserial PRIMARY KEY,
-    value   text NOT NULL,
-    user_id int  NOT NULL REFERENCES users (id) on delete cascade
-);
-
 CREATE TABLE IF NOT EXISTS topics
 (
     id      bigserial PRIMARY KEY,

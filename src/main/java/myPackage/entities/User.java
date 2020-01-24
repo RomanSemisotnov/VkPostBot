@@ -16,9 +16,6 @@ public class User {
     private int vkId;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<IncommingMessage> incommingMessages;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Topic> topics;
 
     public User() { }
@@ -41,14 +38,6 @@ public class User {
 
     public void setVkId(int vkId) {
         this.vkId = vkId;
-    }
-
-    public List<IncommingMessage> getIncommingMessages() {
-        return incommingMessages;
-    }
-
-    public void setIncommingMessages(List<IncommingMessage> incommingMessages) {
-        this.incommingMessages = incommingMessages;
     }
 
     public List<Topic> getTopics() {
