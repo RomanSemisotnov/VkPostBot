@@ -1,6 +1,5 @@
 package myPackage.config;
 
-import com.vk.api.sdk.client.TransportClient;
 import com.vk.api.sdk.client.VkApiClient;
 import com.vk.api.sdk.client.actors.GroupActor;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
@@ -33,8 +32,7 @@ public class VkConfig {
 
     @Bean
     public VkApiClient vkApiClient() {
-        TransportClient transportClient = HttpTransportClient.getInstance();
-        return new VkApiClient(transportClient);
+        return new VkApiClient(HttpTransportClient.getInstance());
     }
 
     @Bean

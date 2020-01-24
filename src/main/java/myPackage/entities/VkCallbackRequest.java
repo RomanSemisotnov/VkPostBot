@@ -7,6 +7,8 @@ import myPackage.deserializers.BodyMessageDeserializer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class VkCallbackRequest {
@@ -44,17 +46,23 @@ public class VkCallbackRequest {
 
     @JsonDeserialize(using = BodyMessageDeserializer.class)
     public static class BodyMessage {
-        private int user_id;
+        private int vkUserId;
         private String text;
+        private Map<String, Object> payload;
+        private List<Attachment> attachments = new ArrayList<>();
 
-        private List<VkAttachment> attachments = new ArrayList<>();
-
-        public int getUser_id() {
-            return user_id;
+        public BodyMessage(int vkUserId, String text, Map<String, Object> payload) {
+            this.vkUserId = vkUserId;
+            this.text = Objects.requireNonNull(text);
+            this.payload = Objects.requireNonNull(payload);
         }
 
-        public void setUser_id(int user_id) {
-            this.user_id = user_id;
+        public int getVkUserId() {
+            return vkUserId;
+        }
+
+        public void setVkUserId(int vkUserId) {
+            this.vkUserId = vkUserId;
         }
 
         public String getText() {
@@ -65,14 +73,26 @@ public class VkCallbackRequest {
             this.text = text;
         }
 
-        public List<VkAttachment> getAttachments() {
+        public List<Attachment> getAttachments() {
             return attachments;
         }
 
-        public void setAttachments(List<VkAttachment> attachments) {
+        public void setAttachments(List<Attachment> attachments) {
             this.attachments = attachments;
         }
 
+        public Map<String, Object> getPayload() {
+            return payload;
+        }
+
+        public void setPayload(Map<String, Object> payload) {
+            this.payload = payload;
+        }
+
+        @Override
+        public String toString() {
+            return "MessageBody, user_id: " + vkUserId + ", text: '" + text + "', payload: " + payload + ", attachments: " + attachments;
+        }
     }
 
 }

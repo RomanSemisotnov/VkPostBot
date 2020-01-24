@@ -1,13 +1,18 @@
 package myPackage.DAO;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.criteria.CriteriaUpdate;
+import javax.persistence.criteria.Root;
 import java.util.List;
+import java.util.function.Consumer;
 
 @Component
-public class AbstractDAO<T> {
+public abstract class AbstractDAO<T> {
 
     private Class<T> entityClass;
 
@@ -18,7 +23,7 @@ public class AbstractDAO<T> {
         this.entityClass = entityClass;
     }
 
-    public T findOne(long id) {
+    public T findOne(int id) {
         return (T) sessionFactory.openSession().get(entityClass, id);
     }
 
@@ -27,18 +32,27 @@ public class AbstractDAO<T> {
     }
 
     public void save(T entity) {
-        sessionFactory.openSession().persist(entity);
+        sessionFactory.openSession().save(entity);
     }
 
-    public T update(T entity) {
-        return (T) sessionFactory.openSession().merge(entity);
+    public void update(List<Integer> ids, Consumer<CriteriaUpdate<T>> updateConsumer) {
+        Session session = sessionFactory.openSession();
+        Transaction tr = session.beginTransaction();
+        CriteriaUpdate<T> update = session.getCriteriaBuilder().createCriteriaUpdate(entityClass);
+        Root<T> root = update.from(entityClass);
+
+        updateConsumer.accept(update);
+
+        update.where(root.get("id").in(ids));
+        session.createQuery(update).executeUpdate();
+        tr.commit();
     }
 
     public void delete(T entity) {
         sessionFactory.openSession().delete(entity);
     }
 
-    public void deleteById(long id) {
+    public void deleteById(int id) {
         T entity = findOne(id);
         delete(entity);
     }

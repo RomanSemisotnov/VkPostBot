@@ -1,17 +1,31 @@
 package myPackage.entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Keyboard {
 
+    private static int DEFAULT_COUNT_BUTTON_ON_LINE = 2;
     private boolean one_time = true;
     private boolean inline = false;
     private List<List<TextButton>> buttons;
 
-    public Keyboard(List<TextButton> buttons){
-        this.buttons=new ArrayList<>();
-        this.buttons.add(buttons);
+    public Keyboard(List<Topic> topics, List<Integer> attachmentIds) {
+        buttons = new ArrayList<>();
+
+        if (topics != null) {
+            List<TextButton> buffer = new ArrayList<>();
+            Topic current;
+            int size = topics.size();
+            for (int i = 0; i < size; i++) {
+                current = topics.get(i);
+                buffer.add(new TextButton(current.getName(), "{ \"topic_id\" : " + current.getId()
+                        + ", \"attachment_ids\": " + attachmentIds + " } "));
+                if ((i != 0 && (i + 1) % DEFAULT_COUNT_BUTTON_ON_LINE == 0) || i == size - 1) {
+                    buttons.add(buffer);
+                    buffer = new ArrayList<>();
+                }
+            }
+        }
     }
 
     public boolean isOne_time() {

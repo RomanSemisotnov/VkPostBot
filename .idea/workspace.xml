@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/deserializers/BodyMessageDeserializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/Keyboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/TextButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/VkAttachment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/enums/ALLOWED_ATTACHMENTS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/factories/VkAttachmentFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/IncommingMessageHandlerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/vkApiMessageSenderServices/AbstractMessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/vkApiMessageSenderServices/DefineTopicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="commit">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/AttachmentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/TopicDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/deserializers/AttachmentDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/Attachment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/Topic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/enums/AllowedAttachmentsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/enums/COMMANDS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/MessageHandlerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/CallbackHandlerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/DAO/AbstractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/AbstractDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/DAO/IncommingMessageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/IncommingMessageDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/DAO/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/VkConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/VkConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/deserializers/BodyMessageDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/deserializers/BodyMessageDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/Keyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/TextButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/TextButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/VkAttachment.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/VkCallbackRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/VkCallbackRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vkAuth.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vkAuth.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/enums/ALLOWED_ATTACHMENTS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/enums/ALLOWED_ATTACHMENTS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/factories/VkAttachmentFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/IncommingMessageHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/IncommingMessageHandlerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/vkApiMessageSenderServices/AbstractMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/vkApiMessageSenderServices/AbstractMessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/vkApiMessageSenderServices/DefineTopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/vkApiMessageSenderServices/DefineTopicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/migrations/V1_0__create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/migrations/V1_0__create_tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/myPackage/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/myPackage/Application.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +96,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTTP Request" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Nfcuruanalitycs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -344,7 +355,11 @@
       <workItem from="1579188817057" duration="21883000" />
       <workItem from="1579274228969" duration="6822000" />
       <workItem from="1579351629120" duration="5630000" />
-      <workItem from="1579418846208" duration="23131000" />
+      <workItem from="1579418846208" duration="74151000" />
+      <workItem from="1579707908571" duration="15527000" />
+      <workItem from="1579771846471" duration="224000" />
+      <workItem from="1579790406864" duration="27924000" />
+      <workItem from="1579852047167" duration="1040000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1578652793740</created>
@@ -402,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579263040531</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="commit">
+      <created>1579466039505</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1579466039505</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

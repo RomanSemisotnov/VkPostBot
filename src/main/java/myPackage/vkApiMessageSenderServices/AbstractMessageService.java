@@ -14,6 +14,4 @@ public abstract class AbstractMessageService {
     @Autowired
     protected GroupActor myGroupActor;
 
-    public abstract void send(int user_id);
-
 }

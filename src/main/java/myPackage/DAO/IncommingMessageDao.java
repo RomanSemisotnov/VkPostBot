@@ -14,12 +14,12 @@ public class IncommingMessageDao extends AbstractDAO<IncommingMessage> {
 
     public IncommingMessage getLastByUserId(int user_id) {
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("select message from IncommingMessage message " +
+        Query<IncommingMessage> query = session.createQuery("select message from IncommingMessage message " +
                 "where message.user_id = :user_id order by message.id desc ");
         query.setParameter("user_id", user_id);
         query.setMaxResults(1);
 
-        return (IncommingMessage) query.stream().findFirst().orElse(null);
+        return query.stream().findFirst().orElse(null);
     }
 
 }

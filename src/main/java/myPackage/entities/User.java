@@ -15,8 +15,17 @@ public class User {
     @Column(name = "vk_id")
     private int vkId;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<IncommingMessage> incommingMessages;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Topic> topics;
+
+    public User() { }
+
+    public User(int vkId) {
+        this.vkId = vkId;
+    }
 
     public int getId() {
         return id;
@@ -40,6 +49,19 @@ public class User {
 
     public void setIncommingMessages(List<IncommingMessage> incommingMessages) {
         this.incommingMessages = incommingMessages;
+    }
+
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
+    }
+
+    @Override
+    public String toString() {
+        return "User id: " + id + ", vk_di: " + vkId;
     }
 
 }

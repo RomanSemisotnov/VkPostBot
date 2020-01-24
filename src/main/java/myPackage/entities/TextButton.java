@@ -5,10 +5,6 @@ public class TextButton {
     private String color = "primary";
     private Action action;
 
-    public TextButton(String label) {
-        action = new Action(label);
-    }
-
     public TextButton(String label, String payload) {
         action = new Action(label, payload);
     }
@@ -33,10 +29,6 @@ public class TextButton {
         private String type = "text";
         private String label;
         private String payload;
-
-        private Action(String label) {
-            this.label = label;
-        }
 
         private Action(String label, String payload) {
             this.label = label;
