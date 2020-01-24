@@ -5,4 +5,3 @@
 Spring + hibernate + PostgreSql
 
 Для деплоя, создать src/main/resources со всеми нужными данными 
-
