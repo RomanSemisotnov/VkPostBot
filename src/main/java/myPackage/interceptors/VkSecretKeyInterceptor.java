@@ -2,7 +2,7 @@ package myPackage.interceptors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import myPackage.config.VkConfig;
-import myPackage.entities.VkCallbackRequest;
+import myPackage.entities.VkCallback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -36,7 +36,7 @@ public class VkSecretKeyInterceptor implements HandlerInterceptor {
             }
 
             ObjectMapper mapper = new ObjectMapper();
-            VkCallbackRequest callback = mapper.readValue(multiReadRequest.getBody(), VkCallbackRequest.class);
+            VkCallback callback = mapper.readValue(multiReadRequest.getBody(), VkCallback.class);
 
             return callback.getSecret().equals(vkConfig.getSecret());
         }

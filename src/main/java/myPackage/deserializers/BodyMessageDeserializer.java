@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import myPackage.entities.Attachment;
-import myPackage.entities.VkCallbackRequest;
+import myPackage.entities.VkCallback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,13 +18,13 @@ import java.util.Iterator;
 import java.util.Map;
 
 @Component
-public class BodyMessageDeserializer extends JsonDeserializer<VkCallbackRequest.BodyMessage> {
+public class BodyMessageDeserializer extends JsonDeserializer<VkCallback.BodyMessage> {
 
     @Autowired
     private ObjectMapper mapper;
 
     @Override
-    public VkCallbackRequest.BodyMessage deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
+    public VkCallback.BodyMessage deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
             throws IOException, JsonProcessingException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         int vkId = node.get("from_id").asInt();
@@ -34,7 +34,7 @@ public class BodyMessageDeserializer extends JsonDeserializer<VkCallbackRequest.
         };
         Map<String, Object> payload = mapper.readValue(jsonPayload, typeRef);
 
-        VkCallbackRequest.BodyMessage bodyMessage = new VkCallbackRequest.BodyMessage(vkId, text, payload);
+        VkCallback.BodyMessage bodyMessage = new VkCallback.BodyMessage(vkId, text, payload);
 
         Iterator<JsonNode> attachmentsIter = node.get("attachments").elements();
         while (attachmentsIter.hasNext()) {

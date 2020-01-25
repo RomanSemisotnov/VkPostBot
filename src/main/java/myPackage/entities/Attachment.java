@@ -3,7 +3,7 @@ package myPackage.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import myPackage.deserializers.AttachmentDeserializer;
-import myPackage.enums.ALLOWED_ATTACHMENTS;
+import myPackage.enums.AllowedAttachments;
 
 import javax.persistence.*;
 import java.util.stream.Collectors;
@@ -41,8 +41,8 @@ public class Attachment {
     }
 
     public Attachment(int vkId, String type, int ownerId) {
-        if (!Stream.of(ALLOWED_ATTACHMENTS.values()).map(ALLOWED_ATTACHMENTS::toString)
-                .collect(Collectors.toList()).contains(type)) {
+        if (!Stream.of(AllowedAttachments.values()).map(AllowedAttachments::toString)
+                .collect(Collectors.toList()).contains(type.toUpperCase())) {
             throw new IllegalArgumentException("this attachment type not supported");
         }
 
@@ -72,8 +72,8 @@ public class Attachment {
     }
 
     public void setType(String type) {
-        if (!Stream.of(ALLOWED_ATTACHMENTS.values()).map(ALLOWED_ATTACHMENTS::toString)
-                .collect(Collectors.toList()).contains(type)) {
+        if (!Stream.of(AllowedAttachments.values()).map(AllowedAttachments::toString)
+                .collect(Collectors.toList()).contains(type.toUpperCase())) {
             throw new IllegalArgumentException("this attachment type not supported");
         }
 

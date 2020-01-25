@@ -28,6 +28,14 @@ public class Topic {
     @OneToMany(mappedBy = "topic", fetch = FetchType.LAZY)
     private List<Attachment> attachments;
 
+    public Topic() {
+    }
+
+    public Topic(String name, int userId) {
+        this.name = name;
+        this.userId = userId;
+    }
+
   /*  @Override
     public boolean equals(Object obj) {
         if (obj == this)

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -31,11 +33,20 @@ public abstract class AbstractDAO<T> {
         return sessionFactory.openSession().createQuery("from " + entityClass.getName()).list();
     }
 
-    public void save(T entity) {
-        sessionFactory.openSession().save(entity);
+    public Integer save(T entity) {
+        return (Integer) sessionFactory.openSession().save(entity);
     }
 
-    public void update(List<Integer> ids, Consumer<CriteriaUpdate<T>> updateConsumer) {
+    public List<Integer> saveAll(Collection<T> entities) {
+        Session session = sessionFactory.openSession();
+        List<Integer> ids = new ArrayList<>();
+        for (T entity : entities) {
+            ids.add((Integer) session.save(entity));
+        }
+        return ids;
+    }
+
+    public int update(List<Integer> ids, Consumer<CriteriaUpdate<T>> updateConsumer) {
         Session session = sessionFactory.openSession();
         Transaction tr = session.beginTransaction();
         CriteriaUpdate<T> update = session.getCriteriaBuilder().createCriteriaUpdate(entityClass);
@@ -44,8 +55,9 @@ public abstract class AbstractDAO<T> {
         updateConsumer.accept(update);
 
         update.where(root.get("id").in(ids));
-        session.createQuery(update).executeUpdate();
+        int updatedCount = session.createQuery(update).executeUpdate();
         tr.commit();
+        return updatedCount;
     }
 
     public void delete(T entity) {

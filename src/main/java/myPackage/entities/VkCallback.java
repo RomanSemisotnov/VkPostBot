@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class VkCallbackRequest {
+public class VkCallback {
 
     @JsonProperty("type")
     private String type;

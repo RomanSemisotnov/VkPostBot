@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import myPackage.entities.Attachment;
-import myPackage.enums.ALLOWED_ATTACHMENTS;
+import myPackage.enums.AllowedAttachments;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class AttachmentDeserializer extends JsonDeserializer<Attachment> {
 
         Attachment instance = null;
         String type = node.get("type").asText();
-        if (type.equals(ALLOWED_ATTACHMENTS.wall.name())) {
+        if (type.toUpperCase().equals(AllowedAttachments.WALL.name())) {
             int vkId = node.get(type).get("id").asInt();
             int ownerId = node.get(type).get("from_id").asInt();
             instance = new Attachment(vkId, type, ownerId);

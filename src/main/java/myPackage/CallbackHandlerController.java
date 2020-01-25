@@ -1,7 +1,7 @@
 package myPackage;
 
-import myPackage.entities.VkCallbackRequest;
-import myPackage.services.IncommingMessageHandlerService;
+import myPackage.entities.VkCallback;
+import myPackage.services.MainMessageHandlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.*;
 public class CallbackHandlerController {
 
     @Autowired
-    private IncommingMessageHandlerService incommingMessageHandlerService;
+    private MainMessageHandlerService mainMessageHandlerService;
 
     @PostMapping
-    public VkCallbackRequest execute(@RequestBody VkCallbackRequest vkCallbackRequest) {
+    public VkCallback execute(@RequestBody VkCallback callback) {
 
-        if (vkCallbackRequest.getType().equals("message_new")) {
-            incommingMessageHandlerService.handle(vkCallbackRequest);
+        if (callback.getType().equals("message_new")) {
+            mainMessageHandlerService.handle(callback.getBodyMessage());
         }
 
-        return vkCallbackRequest;
+        return callback;
     }
 
 }

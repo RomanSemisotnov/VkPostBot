@@ -1,4 +1,4 @@
-package myPackage.vkApiMessageSenderServices;
+package myPackage.services.vkMessageSenders;
 
 import com.vk.api.sdk.client.VkApiClient;
 import com.vk.api.sdk.client.actors.GroupActor;
