@@ -6,6 +6,7 @@ import myPackage.deserializers.AttachmentDeserializer;
 import myPackage.enums.AllowedAttachments;
 
 import javax.persistence.*;
+import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

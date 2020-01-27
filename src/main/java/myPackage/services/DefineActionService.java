@@ -15,13 +15,13 @@ public class DefineActionService {
 
     public Action define(VkCallback.BodyMessage bodyMessage) {
         if (bodyMessage.getAttachments().size() != 0) {
-            return Action.SEND_KEYBOARD_TOPIC_FOR_USER;
+            return Action.ATTACHMENT_HANDLER;
         } else if (bodyMessage.getPayload().size() != 0
                 && bodyMessage.getPayload().containsKey("attachment_ids")
                 && bodyMessage.getPayload().containsKey("topic_id")) {
-            return Action.UPDATE_ATTACHMENT_TYPE;
+            return Action.UPDATE_ATTACHMENT_TYPE_BY_KEYBOARD;
         } else if (addTopicCommandPattern.matcher(bodyMessage.getText()).matches()) {
-            return Action.ADD_TOPIC;
+            return Action.ADD_TOPIC_BY_COMMAND;
         } else {
             return Action.UNKNOWN_ACTION;
         }

@@ -1,4 +1,4 @@
-package myPackage.services;
+package myPackage.services.handlers;
 
 import myPackage.DAO.AttachmentDao;
 import myPackage.DAO.UserDao;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
-public class UpdateAttachmentTypeService {
+public class UpdateAttachmentTypeByKeyboardService {
 
     @Autowired
     private AttachmentDao attachmentDao;
@@ -27,7 +27,7 @@ public class UpdateAttachmentTypeService {
     private ConcurrentHashMap<Integer, List<Integer>> lastIncommingAttachmentsMap;
 
     public void update(VkCallback.BodyMessage bodyMessage) {
-        System.out.println("Обработка payload");
+        System.out.println("Обновление клавиатуры с вложений");
         User user = userDao.findOrCreateByVkId(bodyMessage.getVkUserId());
 
         Integer topicId = (Integer) bodyMessage.getPayload().get("topic_id");

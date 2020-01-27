@@ -1,4 +1,4 @@
-package myPackage.services;
+package myPackage.services.handlers;
 
 import myPackage.DAO.AttachmentDao;
 import myPackage.DAO.UserDao;
@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 @Service
-public class SendTopicKeyboardForUserService {
+public class AttachmentHandlerService {
 
     @Autowired
     private MessageSenderService messageSenderService;
@@ -29,8 +29,8 @@ public class SendTopicKeyboardForUserService {
     @Autowired
     private ConcurrentHashMap<Integer, List<Integer>> lastIncommingAttachmentsMap;
 
-    public void send(VkCallback.BodyMessage bodyMessage) {
-        System.out.println("обработка attachment");
+    public void handle(VkCallback.BodyMessage bodyMessage) {
+        System.out.println("Обработка добавления attachment");
 
         User user = userDao.findOrCreateByVkId(bodyMessage.getVkUserId());
         List<Integer> ids = attachmentDao.saveAll(bodyMessage.getAttachments());

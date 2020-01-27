@@ -1,4 +1,4 @@
-package myPackage.services;
+package myPackage.services.handlers;
 
 import myPackage.DAO.AttachmentDao;
 import myPackage.DAO.TopicDao;
@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
 @Service
-public class AddTopicService {
+public class AddTopicByCommandService {
 
     @Autowired
     private UserDao userDao;
@@ -36,7 +36,7 @@ public class AddTopicService {
     private MessageSenderService messageSenderService;
 
     public void add(VkCallback.BodyMessage bodyMessage) {
-        System.out.println("adding topic");
+        System.out.println("Добавление топика через команду");
         String topicName = extraSpacePattern.matcher(bodyMessage.getText()).replaceAll(" ").trim().substring(1).trim();
         User user = userDao.findOrCreateByVkId(bodyMessage.getVkUserId());
         Integer topicId = topicDao.save(new Topic(topicName, user.getId()));
