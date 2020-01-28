@@ -1,50 +1,35 @@
 package myPackage.services.handlers;
 
 import myPackage.DAO.AttachmentDao;
-import myPackage.DAO.UserDao;
-import myPackage.entities.Attachment;
-import myPackage.entities.Keyboard;
 import myPackage.entities.User;
 import myPackage.entities.VkCallback;
-import myPackage.services.vkMessageSenders.MessageSenderService;
+import myPackage.enums.Action;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 @Service
-public class AttachmentHandlerService {
-
-    @Autowired
-    private MessageSenderService messageSenderService;
+public class AttachmentHandlerService extends BaseHandler {
 
     @Autowired
     private AttachmentDao attachmentDao;
 
-    @Autowired
-    private UserDao userDao;
-
-    @Autowired
-    private ConcurrentHashMap<Integer, List<Integer>> lastIncommingAttachmentsMap;
-
-    public void handle(VkCallback.BodyMessage bodyMessage) {
+    public void handle(VkCallback.BodyMessage bodyMessage, User user) {
         System.out.println("Обработка добавления attachment");
 
-        User user = userDao.findOrCreateByVkId(bodyMessage.getVkUserId());
         List<Integer> ids = attachmentDao.saveAll(bodyMessage.getAttachments());
         lastIncommingAttachmentsMap.put(user.getId(), ids);
 
-        List<Integer> attachmentIds = bodyMessage.getAttachments().stream()
-                .map(Attachment::getId).collect(Collectors.toList());
-        Keyboard keyboard = new Keyboard(user.getTopics(), attachmentIds);
-
-        String msg = "Укажите тему, к которой хотите отнести этот пост, " +
-                "если такой темы нету, то введите новую тему в сообщении, не используя кнопки.";
-        messageSenderService.send(user.getVkId(), msg, keyboard);
+        String message;
+        System.out.println(ids.size());
+        if (ids.size() > 1) {
+            message = "Как вы хотите назвать данные вложения? Напишите имя для каждого через запятую.";
+        } else {
+            message = "Как вы хотите назвать данное вложение?";
+        }
+        messageSenderService.send(user.getVkId(), message);
+        prevUserActionMap.put(user.getId(), Action.ATTACHMENT_HANDLER);
     }
 
 }
-
-

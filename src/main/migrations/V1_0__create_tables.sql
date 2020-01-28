@@ -1,3 +1,4 @@
+
 CREATE TABLE IF NOT EXISTS users
 (
     id    serial PRIMARY KEY,
@@ -14,6 +15,7 @@ CREATE TABLE IF NOT EXISTS topics
 CREATE TABLE IF NOT EXISTS attachments
 (
     id       bigserial PRIMARY KEY,
+    name     text    NULL,
     owner_id int     NOT NULL,
     type     varchar NOT NULL,
     vk_id    int     NOT NULL,

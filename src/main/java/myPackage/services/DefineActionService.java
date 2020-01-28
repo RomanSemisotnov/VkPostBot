@@ -13,18 +13,33 @@ public class DefineActionService {
     @Autowired
     private Pattern addTopicCommandPattern;
 
-    public Action define(VkCallback.BodyMessage bodyMessage) {
-        if (bodyMessage.getAttachments().size() != 0) {
+    @Autowired
+    private Pattern anyCommandPattern;
+
+    public Action define(VkCallback.BodyMessage bodyMessage, Action prevAction) {
+        if (bodyMessage.getAttachments().size() != 0) // we got attachment
             return Action.ATTACHMENT_HANDLER;
-        } else if (bodyMessage.getPayload().size() != 0
-                && bodyMessage.getPayload().containsKey("attachment_ids")
-                && bodyMessage.getPayload().containsKey("topic_id")) {
-            return Action.UPDATE_ATTACHMENT_TYPE_BY_KEYBOARD;
-        } else if (addTopicCommandPattern.matcher(bodyMessage.getText()).matches()) {
-            return Action.ADD_TOPIC_BY_COMMAND;
-        } else {
-            return Action.UNKNOWN_ACTION;
+
+        String message = bodyMessage.getText();
+        if (anyCommandPattern.matcher(message).matches()) {  // we got any command
+
+            if (addTopicCommandPattern.matcher(message).matches())
+                return Action.ADD_TOPIC_BY_COMMAND;
+
         }
+
+        if (prevAction == Action.ATTACHMENT_HANDLER)
+            return Action.SET_ATTACHMENT_NAME;
+
+        if (bodyMessage.getPayload().size() != 0 && bodyMessage.getPayload().containsKey("prevAction")) {
+
+            String prevPayloadAction = (String) bodyMessage.getPayload().get("prevAction");
+            if (Action.valueOf(prevPayloadAction) == Action.SET_ATTACHMENT_NAME)
+                return Action.SET_ATTACHMENT_TOPIC_BY_KEYBOARD;
+
+        }
+
+        return Action.UNKNOWN_ACTION;
     }
 
 }

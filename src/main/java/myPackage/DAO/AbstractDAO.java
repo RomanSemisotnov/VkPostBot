@@ -46,6 +46,12 @@ public abstract class AbstractDAO<T> {
         return ids;
     }
 
+    public void update(int id, Consumer<CriteriaUpdate<T>> updateConsumer) {
+        List<Integer> ids = new ArrayList<>();
+        ids.add(id);
+        update(ids, updateConsumer);
+    }
+
     public int update(List<Integer> ids, Consumer<CriteriaUpdate<T>> updateConsumer) {
         Session session = sessionFactory.openSession();
         Transaction tr = session.beginTransaction();

@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/UnknownActionHandlerService.java" afterDir="false" />
+    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/BaseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/SetAttachmentNameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/CallbackHandlerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/CallbackHandlerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/DAO/AbstractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/AbstractDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/ActionConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/ActionConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/GlobalCollectionsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/GlobalCollectionsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/PatternMatchsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/PatternMatchsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/Attachment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/Attachment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/Keyboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/enums/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/enums/Action.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/enums/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/enums/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/AddTopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AddTopicByCommandService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/DefineActionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/DefineActionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/MainMessageHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/MainMessageHandlerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/SendTopicKeyboardForUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AttachmentHandlerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/UpdateAttachmentTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/UpdateAttachmentTypeByKeyboardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AddTopicByCommandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AddTopicByCommandService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AttachmentHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AttachmentHandlerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/UnknownActionHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/UnknownActionHandlerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/UpdateAttachmentTypeByKeyboardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/SetAttachmentTopicByKeyboardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/migrations/V1_0__create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/migrations/V1_0__create_tables.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +43,47 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - vkpostbot@194.58.118.66" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - vkpostbot@194.58.118.66" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - vkpostbot@194.58.118.66" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="vkpostbot: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - vkpostbot@194.58.118.66" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="vkpostbot: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - vkpostbot@194.58.118.66" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="vkpostbot: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - vkpostbot@194.58.118.66" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="vkpostbot: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -307,7 +356,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1b012207" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@8f780378" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@8f780378" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7aaf8fc" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -357,7 +411,7 @@
       <workItem from="1579981127323" duration="4000" />
       <workItem from="1579981169506" duration="112000" />
       <workItem from="1580051597767" duration="3676000" />
-      <workItem from="1580075320370" duration="10781000" />
+      <workItem from="1580075320370" duration="34292000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1578652793740</created>
@@ -520,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579971559006</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="commit">
+      <created>1580135185560</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1580135185560</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

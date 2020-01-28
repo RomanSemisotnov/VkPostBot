@@ -1,18 +1,16 @@
 package myPackage.config;
 
+import myPackage.entities.User;
 import myPackage.entities.VkCallback;
 import myPackage.enums.Action;
-import myPackage.services.handlers.AddTopicByCommandService;
-import myPackage.services.handlers.AttachmentHandlerService;
-import myPackage.services.handlers.UnknownActionHandlerService;
-import myPackage.services.handlers.UpdateAttachmentTypeByKeyboardService;
+import myPackage.services.handlers.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.function.Consumer;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.BiConsumer;
 
 @Configuration
 public class ActionConfig {
@@ -21,7 +19,7 @@ public class ActionConfig {
     private AttachmentHandlerService attachmentHandlerService;
 
     @Autowired
-    private UpdateAttachmentTypeByKeyboardService updateAttachment;
+    private SetAttachmentTopicByKeyboardService setTopicByKeyboardService;
 
     @Autowired
     private AddTopicByCommandService addTopicByCommandService;
@@ -29,18 +27,34 @@ public class ActionConfig {
     @Autowired
     private UnknownActionHandlerService unknownActionHandlerService;
 
+    @Autowired
+    private SetAttachmentNameService setAttachmentNameService;
+
     /*
      key - enum Action
      value - executable action
      */
     @Bean
-    public HashMap<Action, Consumer<VkCallback.BodyMessage>> actionMap() {
-        HashMap<Action, Consumer<VkCallback.BodyMessage>> actions = new HashMap<>();
+    public HashMap<Action, BiConsumer<VkCallback.BodyMessage, User>> actionMap() {
+        HashMap<Action, BiConsumer<VkCallback.BodyMessage, User>> actions = new HashMap<>();
         actions.put(Action.ATTACHMENT_HANDLER, attachmentHandlerService::handle);
-        actions.put(Action.UPDATE_ATTACHMENT_TYPE_BY_KEYBOARD, updateAttachment::update);
+
+        actions.put(Action.SET_ATTACHMENT_NAME, setAttachmentNameService::set);
+
+        actions.put(Action.SET_ATTACHMENT_TOPIC_BY_KEYBOARD, setTopicByKeyboardService::set);
         actions.put(Action.ADD_TOPIC_BY_COMMAND, addTopicByCommandService::add);
+
         actions.put(Action.UNKNOWN_ACTION, unknownActionHandlerService::handle);
-        return (HashMap<Action, Consumer<VkCallback.BodyMessage>>) Collections.unmodifiableMap(actions);
+        return actions;
+    }
+
+    /*
+   key - user_id
+   value - previous user action
+    */
+    @Bean
+    public ConcurrentHashMap<Integer, Action> prevUserActionMap() {
+        return new ConcurrentHashMap<>();
     }
 
 }

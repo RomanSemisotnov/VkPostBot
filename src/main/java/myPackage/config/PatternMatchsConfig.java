@@ -15,6 +15,22 @@ public class PatternMatchsConfig {
     }
 
     @Bean
+    public Pattern anyCommandPattern() {
+        String allCommands = "(";
+        for (Command command : Command.values()) {
+            allCommands += command.getValue() + "|";
+        }
+        allCommands = allCommands.substring(0, allCommands.length() - 1);
+        allCommands += ")";
+        return Pattern.compile("^\\s*[" + allCommands + "]\\s*[\\S+\\s*]+$");
+    }
+
+    @Bean
+    public Pattern commaPattern() {
+        return Pattern.compile("\\.");
+    }
+
+    @Bean
     public Pattern extraSpacePattern() {
         return Pattern.compile("[\\s]{2,}");
     }

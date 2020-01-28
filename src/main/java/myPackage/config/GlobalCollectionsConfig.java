@@ -11,7 +11,7 @@ public class GlobalCollectionsConfig {
 
     /*
     key - user_id
-    value - list of attachment_ids
+    value - list of last attachment_ids
      */
     @Bean
     public ConcurrentHashMap<Integer, List<Integer>> lastIncommingAttachmentsMap() {

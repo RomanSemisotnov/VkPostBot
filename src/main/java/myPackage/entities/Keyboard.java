@@ -1,5 +1,7 @@
 package myPackage.entities;
 
+import myPackage.enums.Action;
+
 import java.util.*;
 
 public class Keyboard {
@@ -9,7 +11,7 @@ public class Keyboard {
     private boolean inline = false;
     private List<List<TextButton>> buttons;
 
-    public Keyboard(List<Topic> topics, List<Integer> attachmentIds) {
+    public Keyboard(List<Topic> topics) {
         buttons = new ArrayList<>();
 
         if (topics != null) {
@@ -19,7 +21,7 @@ public class Keyboard {
             for (int i = 0; i < size; i++) {
                 current = topics.get(i);
                 buffer.add(new TextButton(current.getName(), "{ \"topic_id\" : " + current.getId()
-                        + ", \"attachment_ids\": " + attachmentIds + " } "));
+                        + ", \"prevAction\": \"" + Action.SET_ATTACHMENT_NAME.name() + "\" } "));
                 if ((i != 0 && (i + 1) % DEFAULT_COUNT_BUTTON_ON_LINE == 0) || i == size - 1) {
                     buttons.add(buffer);
                     buffer = new ArrayList<>();

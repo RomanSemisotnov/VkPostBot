@@ -2,23 +2,17 @@ package myPackage.services.handlers;
 
 import myPackage.DAO.AttachmentDao;
 import myPackage.DAO.TopicDao;
-import myPackage.DAO.UserDao;
 import myPackage.entities.Topic;
 import myPackage.entities.User;
 import myPackage.entities.VkCallback;
-import myPackage.services.vkMessageSenders.MessageSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
 @Service
-public class AddTopicByCommandService {
-
-    @Autowired
-    private UserDao userDao;
+public class AddTopicByCommandService extends BaseHandler {
 
     @Autowired
     private TopicDao topicDao;
@@ -29,16 +23,9 @@ public class AddTopicByCommandService {
     @Autowired
     private Pattern extraSpacePattern;
 
-    @Autowired
-    private ConcurrentHashMap<Integer, List<Integer>> lastIncommingAttachmentsMap;
-
-    @Autowired
-    private MessageSenderService messageSenderService;
-
-    public void add(VkCallback.BodyMessage bodyMessage) {
+    public void add(VkCallback.BodyMessage bodyMessage, User user) {
         System.out.println("Добавление топика через команду");
         String topicName = extraSpacePattern.matcher(bodyMessage.getText()).replaceAll(" ").trim().substring(1).trim();
-        User user = userDao.findOrCreateByVkId(bodyMessage.getVkUserId());
         Integer topicId = topicDao.save(new Topic(topicName, user.getId()));
 
         List<Integer> attachment_ids = lastIncommingAttachmentsMap.remove(user.getId());
@@ -54,6 +41,7 @@ public class AddTopicByCommandService {
             msg = "Топик успешно сохранен.";
         }
         messageSenderService.send(user.getVkId(), msg);
+        prevUserActionMap.remove(user.getId());
     }
 
 }

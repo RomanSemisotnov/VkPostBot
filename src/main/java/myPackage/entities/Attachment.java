@@ -6,7 +6,6 @@ import myPackage.deserializers.AttachmentDeserializer;
 import myPackage.enums.AllowedAttachments;
 
 import javax.persistence.*;
-import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -19,6 +18,8 @@ public class Attachment {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "name")
+    private String name;
     @Column(name = "vk_id")
     private int vkId;
     @Column(name = "owner_id")
@@ -50,6 +51,14 @@ public class Attachment {
         this.vkId = vkId;
         this.type = type;
         this.ownerId = ownerId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getVkId() {
