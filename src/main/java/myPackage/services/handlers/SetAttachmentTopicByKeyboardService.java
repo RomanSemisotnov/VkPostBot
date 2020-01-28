@@ -6,8 +6,6 @@ import myPackage.entities.VkCallback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class SetAttachmentTopicByKeyboardService extends BaseHandler {
 
@@ -15,17 +13,16 @@ public class SetAttachmentTopicByKeyboardService extends BaseHandler {
     private AttachmentDao attachmentDao;
 
     public void set(VkCallback.BodyMessage bodyMessage, User user) {
-        System.out.println("Обновление клавиатуры с вложений");
+        System.out.println("Обновление вложений с клавиатуры");
 
         Integer topicId = (Integer) bodyMessage.getPayload().get("topic_id");
-        List<Integer> attachmentIds = lastIncommingAttachmentsMap.remove(user.getId());
+        Integer attachmentId = lastIncommingAttachmentMap.remove(user.getId());
 
-        int updatedCount = attachmentDao.update(attachmentIds, (criteriaUpdate) -> {
+        attachmentDao.update(attachmentId, (criteriaUpdate) -> {
             criteriaUpdate.set("topicId", topicId);
         });
 
-        String msg = updatedCount == 1 ? "Вложение успешно сохраненно." : "Вложения успешно сохраненны.";
-        messageSenderService.send(user.getVkId(), msg);
+        messageSenderService.send(user.getVkId(), "Вложение успешно сохраненно.");
         prevUserActionMap.remove(user.getId());
     }
 

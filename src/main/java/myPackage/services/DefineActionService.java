@@ -17,7 +17,7 @@ public class DefineActionService {
     private Pattern anyCommandPattern;
 
     public Action define(VkCallback.BodyMessage bodyMessage, Action prevAction) {
-        if (bodyMessage.getAttachments().size() != 0) // we got attachment
+        if (bodyMessage.getAttachment() != null) // we got attachment
             return Action.ATTACHMENT_HANDLER;
 
         String message = bodyMessage.getText();

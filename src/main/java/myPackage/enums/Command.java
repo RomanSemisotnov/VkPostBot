@@ -3,7 +3,7 @@ package myPackage.enums;
 public enum Command {
 
     ADD_TOPIC("+");
-
+ // команда на просмотр сообщений и так далее
     private String value;
 
     Command(String value) {

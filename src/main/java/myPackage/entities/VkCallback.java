@@ -49,7 +49,7 @@ public class VkCallback {
         private int vkUserId;
         private String text;
         private Map<String, Object> payload;
-        private List<Attachment> attachments = new ArrayList<>();
+        private Attachment attachment;
 
         public BodyMessage(int vkUserId, String text, Map<String, Object> payload) {
             this.vkUserId = vkUserId;
@@ -73,12 +73,12 @@ public class VkCallback {
             this.text = text;
         }
 
-        public List<Attachment> getAttachments() {
-            return attachments;
+        public Attachment getAttachment() {
+            return attachment;
         }
 
-        public void setAttachments(List<Attachment> attachments) {
-            this.attachments = attachments;
+        public void setAttachment(Attachment attachment) {
+            this.attachment = attachment;
         }
 
         public Map<String, Object> getPayload() {
@@ -91,7 +91,7 @@ public class VkCallback {
 
         @Override
         public String toString() {
-            return "MessageBody, user_id: " + vkUserId + ", text: '" + text + "', payload: " + payload + ", attachments: " + attachments;
+            return "MessageBody, user_id: " + vkUserId + ", text: '" + text + "', payload: " + payload + ", attachment: " + attachment;
         }
     }
 

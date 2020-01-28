@@ -28,15 +28,15 @@ public class AddTopicByCommandService extends BaseHandler {
         String topicName = extraSpacePattern.matcher(bodyMessage.getText()).replaceAll(" ").trim().substring(1).trim();
         Integer topicId = topicDao.save(new Topic(topicName, user.getId()));
 
-        List<Integer> attachment_ids = lastIncommingAttachmentsMap.remove(user.getId());
+        Integer attachmentId = lastIncommingAttachmentMap.remove(user.getId());
 
         String msg;
-        if (attachment_ids != null) {
-            int updatedCount = attachmentDao.update(attachment_ids, (criteriaUpdate) -> {
+        if (attachmentId != null) {
+            attachmentDao.update(attachmentId, (criteriaUpdate) -> {
                 criteriaUpdate.set("topicId", topicId);
             });
 
-            msg = updatedCount == 1 ? "Вложение успешно сохраненно." : "Вложения успешно сохраненны.";
+            msg = "Вложение успешно сохраненно.";
         } else {
             msg = "Топик успешно сохранен.";
         }

@@ -7,8 +7,6 @@ import myPackage.enums.Action;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class AttachmentHandlerService extends BaseHandler {
 
@@ -18,17 +16,10 @@ public class AttachmentHandlerService extends BaseHandler {
     public void handle(VkCallback.BodyMessage bodyMessage, User user) {
         System.out.println("Обработка добавления attachment");
 
-        List<Integer> ids = attachmentDao.saveAll(bodyMessage.getAttachments());
-        lastIncommingAttachmentsMap.put(user.getId(), ids);
+        Integer id = attachmentDao.save(bodyMessage.getAttachment());
+        lastIncommingAttachmentMap.put(user.getId(), id);
 
-        String message;
-        System.out.println(ids.size());
-        if (ids.size() > 1) {
-            message = "Как вы хотите назвать данные вложения? Напишите имя для каждого через запятую.";
-        } else {
-            message = "Как вы хотите назвать данное вложение?";
-        }
-        messageSenderService.send(user.getVkId(), message);
+        messageSenderService.send(user.getVkId(), "Как вы хотите назвать данное вложение?");
         prevUserActionMap.put(user.getId(), Action.ATTACHMENT_HANDLER);
     }
 

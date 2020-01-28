@@ -6,7 +6,6 @@ import myPackage.services.MainMessageHandlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
@@ -20,12 +19,12 @@ public class CallbackHandlerController {
     private ConcurrentHashMap<Integer, Action> prevUserActionMap;
 
     @Autowired
-    private ConcurrentHashMap<Integer, List<Integer>> lastIncommingAttachmentsMap;
+    private ConcurrentHashMap<Integer, Integer> lastIncommingAttachmentMap;
 
     @GetMapping
     public void get() {
         System.out.println(prevUserActionMap);
-        System.out.println(lastIncommingAttachmentsMap);
+        System.out.println(lastIncommingAttachmentMap);
     }
 
     @PostMapping

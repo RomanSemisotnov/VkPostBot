@@ -36,10 +36,9 @@ public class BodyMessageDeserializer extends JsonDeserializer<VkCallback.BodyMes
 
         VkCallback.BodyMessage bodyMessage = new VkCallback.BodyMessage(vkId, text, payload);
 
-        Iterator<JsonNode> attachmentsIter = node.get("attachments").elements();
-        while (attachmentsIter.hasNext()) {
-            bodyMessage.getAttachments().add(mapper.readValue(attachmentsIter.next().toString(), Attachment.class));
-        }
+        Iterator<JsonNode> attachmentsIter = node.get("attachments").iterator();
+        if (attachmentsIter.hasNext())
+            bodyMessage.setAttachment(mapper.readValue(attachmentsIter.next().toString(), Attachment.class));
 
         return bodyMessage;
     }

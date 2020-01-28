@@ -26,11 +26,6 @@ public class PatternMatchsConfig {
     }
 
     @Bean
-    public Pattern commaPattern() {
-        return Pattern.compile("\\.");
-    }
-
-    @Bean
     public Pattern extraSpacePattern() {
         return Pattern.compile("[\\s]{2,}");
     }
