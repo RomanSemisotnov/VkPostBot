@@ -1,14 +1,14 @@
-package myPackage.services.handlers;
+package myPackage.services.handlers.commands;
 
 import myPackage.DAO.AttachmentDao;
 import myPackage.DAO.TopicDao;
 import myPackage.entities.Topic;
 import myPackage.entities.User;
 import myPackage.entities.VkCallback;
+import myPackage.services.handlers.BaseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 @Service

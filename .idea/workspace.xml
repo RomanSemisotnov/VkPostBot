@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="commit">
+    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/GetAttachmentByIndexService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/commands/GetTopicByCommandService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/keyboard/GetAttachmentsByKeyboardService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/CallbackHandlerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/CallbackHandlerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/DAO/AbstractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/AbstractDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/ActionConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/ActionConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/GlobalCollectionsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/GlobalCollectionsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/PatternMatchsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/PatternMatchsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/config/VkConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/config/VkConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/deserializers/BodyMessageDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/deserializers/BodyMessageDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/VkCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/VkCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/Keyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/entities/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/entities/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/enums/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/enums/Action.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/enums/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/enums/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/DefineActionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/DefineActionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AddTopicByCommandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AddTopicByCommandService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AttachmentHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AttachmentHandlerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/BaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/BaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/AddTopicByCommandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/commands/AddTopicByCommandService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/SetAttachmentNameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/SetAttachmentNameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/SetAttachmentTopicByKeyboardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/SetAttachmentTopicByKeyboardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/SetAttachmentTopicByKeyboardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/handlers/keyboard/SetAttachmentTopicByKeyboardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/services/vkMessageSenders/MessageSenderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/services/vkMessageSenders/MessageSenderService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,6 +141,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="myPackage.services.handlers.keyboard" />
+      <recent name="myPackage.services.handlers.commands" />
       <recent name="myPackage.services" />
       <recent name="myPackage.services.handlers" />
     </key>
@@ -409,7 +414,9 @@
       <workItem from="1580203102297" duration="157000" />
       <workItem from="1580215976678" duration="124000" />
       <workItem from="1580217142154" duration="548000" />
-      <workItem from="1580238259800" duration="5925000" />
+      <workItem from="1580238259800" duration="6061000" />
+      <workItem from="1580318442901" duration="12737000" />
+      <workItem from="1580403785116" duration="10228000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1578652793740</created>
@@ -586,7 +593,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580203217045</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="commit">
+      <created>1580249793141</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1580249793141</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

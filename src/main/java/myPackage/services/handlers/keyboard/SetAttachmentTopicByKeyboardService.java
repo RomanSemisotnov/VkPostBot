@@ -1,8 +1,9 @@
-package myPackage.services.handlers;
+package myPackage.services.handlers.keyboard;
 
 import myPackage.DAO.AttachmentDao;
 import myPackage.entities.User;
 import myPackage.entities.VkCallback;
+import myPackage.services.handlers.BaseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -28,7 +28,7 @@ public class SetAttachmentNameService extends BaseHandler {
         attachmentDao.update(attachmentId,
                 (criteriaUpdate) -> criteriaUpdate.set("name", topicName));
 
-        Keyboard keyboard = new Keyboard(user.getTopics());
+        Keyboard keyboard = Keyboard.keyboardForSetTopic(user.getTopics());
         String message = "Укажите тему, к которой хотите отнести этот пост, " +
                 "если такой темы нету, " +
                 "то введите новую тему в сообщении, используя в начале символ '" + Command.ADD_TOPIC.getValue() +

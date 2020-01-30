@@ -15,6 +15,11 @@ public class PatternMatchsConfig {
     }
 
     @Bean
+    public Pattern getTopicCommandPattern() {
+        return Pattern.compile("^\\s*[" + Command.GET_TOPIC.getValue() + "]\\s*[\\S+\\s*]+$");
+    }
+
+    @Bean
     public Pattern anyCommandPattern() {
         String allCommands = "(";
         for (Command command : Command.values()) {

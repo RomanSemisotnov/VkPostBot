@@ -11,7 +11,27 @@ public class Keyboard {
     private boolean inline = false;
     private List<List<TextButton>> buttons;
 
-    public Keyboard(List<Topic> topics) {
+    public Keyboard(Integer AttachmentId) {
+        buttons = new ArrayList<>();
+
+        String readPayload = "{ \"attachment_id\" : " + AttachmentId + ", \"isRead\": \"yes\" "
+                + ", \"prevAction\": \"" + Action.GET_ATTACHMENT_BY_INDEX.name() + "\" } ";
+        String nonReadPayload = "{ \"attachment_id\" : " + AttachmentId + ", \"isRead\": \"yes\" "
+                + ", \"prevAction\": \"" + Action.GET_ATTACHMENT_BY_INDEX.name() + "\" } ";
+        TextButton read = new TextButton("Я прочитал", readPayload);
+        TextButton nonRead = new TextButton("Я не прочитал", nonReadPayload);
+        buttons.add(Arrays.asList(read, nonRead));
+    }
+
+    public static Keyboard keyboardForGetTopic(List<Topic> topics) {
+        return new Keyboard(topics, Action.GET_TOPIC_BY_COMMAND);
+    }
+
+    public static Keyboard keyboardForSetTopic(List<Topic> topics) {
+        return new Keyboard(topics, Action.SET_ATTACHMENT_NAME);
+    }
+
+    private Keyboard(List<Topic> topics, Action prevAction) {
         buttons = new ArrayList<>();
 
         if (topics != null) {
@@ -21,7 +41,7 @@ public class Keyboard {
             for (int i = 0; i < size; i++) {
                 current = topics.get(i);
                 buffer.add(new TextButton(current.getName(), "{ \"topic_id\" : " + current.getId()
-                        + ", \"prevAction\": \"" + Action.SET_ATTACHMENT_NAME.name() + "\" } "));
+                        + ", \"prevAction\": \"" + prevAction.name() + "\" } "));
                 if ((i != 0 && (i + 1) % DEFAULT_COUNT_BUTTON_ON_LINE == 0) || i == size - 1) {
                     buttons.add(buffer);
                     buffer = new ArrayList<>();
