@@ -1,9 +1,9 @@
 package myPackage.DAO;
 
 import myPackage.entities.Topic;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class TopicDao extends AbstractDAO<Topic> {
 
     public TopicDao() {

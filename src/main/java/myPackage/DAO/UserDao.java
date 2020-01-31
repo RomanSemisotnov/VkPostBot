@@ -3,9 +3,9 @@ package myPackage.DAO;
 import myPackage.entities.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class UserDao extends AbstractDAO<User> {
 
     public UserDao() {

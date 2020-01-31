@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SetAttachmentTopicByKeyboardService extends BaseHandler {
+public class SetAttachmentTopicService extends BaseHandler {
 
     @Autowired
     private AttachmentDao attachmentDao;
@@ -24,7 +24,7 @@ public class SetAttachmentTopicByKeyboardService extends BaseHandler {
         });
 
         messageSenderService.send(user.getVkId(), "Вложение успешно сохраненно.");
-        prevUserActionMap.remove(user.getId());
+        userActionMap.remove(user.getId());
     }
 
 }

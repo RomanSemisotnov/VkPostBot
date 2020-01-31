@@ -25,16 +25,6 @@ public class CallbackHandlerController {
     @Autowired
     private ConcurrentHashMap<Integer, Map<Integer, Integer>> lastAttachmentsByOrderMap;
 
-    /*
-    ЗАДАЧИ НА ЗАВТРА : 1) переделать дизайн Keyboard
-                       2) Изменить логику с предыдущего действия, из которого мы определяем что нужно делать
-                       на действие, которое мы делаем сразу( prevAction to currentAction)
-                       3) так же как и в 2 пункет сделать в Keyboard
-                       4) доработать прочитанно/непрочитанно + '/темы (прочитать другое)'
-                       5) поставить ограничения на в Postgres
-                       6) деплой
-     */
-
     @GetMapping
     public void get() {
         System.out.println(prevUserActionMap);

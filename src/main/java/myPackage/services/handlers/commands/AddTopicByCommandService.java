@@ -41,7 +41,7 @@ public class AddTopicByCommandService extends BaseHandler {
             msg = "Топик успешно сохранен.";
         }
         messageSenderService.send(user.getVkId(), msg);
-        prevUserActionMap.remove(user.getId());
+        userActionMap.remove(user.getId());
     }
 
 }

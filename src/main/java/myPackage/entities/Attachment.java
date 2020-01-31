@@ -28,6 +28,8 @@ public class Attachment {
     private String type;
     @Column(name = "topic_id")
     private Integer topicId;
+    @Column(name = "isRead")
+    private boolean isRead;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id", insertable = false, updatable = false)
@@ -90,6 +92,14 @@ public class Attachment {
         this.type = type;
     }
 
+    public boolean isRead() {
+        return isRead;
+    }
+
+    public void setRead(boolean read) {
+        isRead = read;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -116,7 +126,7 @@ public class Attachment {
 
     @Override
     public String toString() {
-        return "Attachment id: '" + id + "', type: " + type +
+        return "Attachment id: " + id + ", isRead: " + isRead + ", type: " + type +
                 ", ownerId: " + ownerId + ", vkId: " + vkId + ", topic_id: " + topicId;
     }
 

@@ -19,5 +19,6 @@ CREATE TABLE IF NOT EXISTS attachments
     owner_id int     NOT NULL,
     type     varchar NOT NULL,
     vk_id    int     NOT NULL,
+    isRead   boolean NOT NULL default false,
     topic_id int     NULL REFERENCES topics (id) on delete cascade
 );

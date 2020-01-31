@@ -5,9 +5,12 @@ import myPackage.entities.VkCallback;
 import myPackage.enums.Action;
 import myPackage.services.handlers.*;
 import myPackage.services.handlers.commands.AddTopicByCommandService;
-import myPackage.services.handlers.commands.GetTopicByCommandService;
-import myPackage.services.handlers.keyboard.GetAttachmentsByKeyboardService;
-import myPackage.services.handlers.keyboard.SetAttachmentTopicByKeyboardService;
+import myPackage.services.handlers.commands.GetTopicsByCommandService;
+import myPackage.services.handlers.keyboard.GetTopicAttachments;
+import myPackage.services.handlers.keyboard.SetAttachmentTopicService;
+import myPackage.services.handlers.keyboard.SetReadStatusService;
+import myPackage.services.handlers.textual.GetAttachmentByIndexService;
+import myPackage.services.handlers.textual.SetAttachmentNameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,16 +26,16 @@ public class ActionConfig {
     private AttachmentHandlerService attachmentHandlerService;
 
     @Autowired
-    private SetAttachmentTopicByKeyboardService setTopicByKeyboardService;
+    private SetAttachmentTopicService setAttachmentTopicService;
 
     @Autowired
-    private GetAttachmentsByKeyboardService getAttachmentsByKeyboardService;
+    private GetTopicAttachments getTopicAttachments;
 
     @Autowired
     private AddTopicByCommandService addTopicByCommandService;
 
     @Autowired
-    private GetTopicByCommandService getTopicByCommandService;
+    private GetTopicsByCommandService getTopicsByCommandService;
 
     @Autowired
     private UnknownActionHandlerService unknownActionHandlerService;
@@ -43,6 +46,9 @@ public class ActionConfig {
     @Autowired
     private GetAttachmentByIndexService getAttachmentByIndexService;
 
+    @Autowired
+    private SetReadStatusService setReadStatusService;
+
     /*
      key - enum Action
      value - executable action
@@ -52,12 +58,13 @@ public class ActionConfig {
         HashMap<Action, BiConsumer<VkCallback.BodyMessage, User>> actions = new HashMap<>();
         actions.put(Action.ATTACHMENT_HANDLER, attachmentHandlerService::handle);
         actions.put(Action.SET_ATTACHMENT_NAME, setAttachmentNameService::set);
-        actions.put(Action.SET_ATTACHMENT_TOPIC_BY_KEYBOARD, setTopicByKeyboardService::set);
+        actions.put(Action.SET_ATTACHMENT_TOPIC, setAttachmentTopicService::set);
         actions.put(Action.ADD_TOPIC_BY_COMMAND, addTopicByCommandService::add);
 
-        actions.put(Action.GET_TOPIC_BY_COMMAND, getTopicByCommandService::get);
-        actions.put(Action.GET_ATTACHMENTS_BY_KEYBOARD, getAttachmentsByKeyboardService::get);
+        actions.put(Action.GET_TOPICS_BY_COMMAND, getTopicsByCommandService::get);
+        actions.put(Action.GET_TOPIC_ATTACHMENTS, getTopicAttachments::get);
         actions.put(Action.GET_ATTACHMENT_BY_INDEX, getAttachmentByIndexService::get);
+        actions.put(Action.SET_READ_STATUS, setReadStatusService::set);
 
         actions.put(Action.UNKNOWN_ACTION, unknownActionHandlerService::handle);
         return actions;
@@ -65,10 +72,10 @@ public class ActionConfig {
 
     /*
    key - user_id
-   value - previous user action
+   value - action, which user chould execute
     */
     @Bean
-    public ConcurrentHashMap<Integer, Action> prevUserActionMap() {
+    public ConcurrentHashMap<Integer, Action> userActionMap() {
         return new ConcurrentHashMap<>();
     }
 

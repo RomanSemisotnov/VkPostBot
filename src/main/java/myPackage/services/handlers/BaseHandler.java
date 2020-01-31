@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public abstract class BaseHandler {
 
     @Autowired
-    protected ConcurrentHashMap<Integer, Action> prevUserActionMap;
+    protected ConcurrentHashMap<Integer, Action> userActionMap;
 
     @Autowired
     protected MessageSenderService messageSenderService;

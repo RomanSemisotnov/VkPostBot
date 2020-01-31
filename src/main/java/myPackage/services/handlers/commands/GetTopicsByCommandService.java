@@ -8,7 +8,7 @@ import myPackage.services.handlers.BaseHandler;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GetTopicByCommandService extends BaseHandler {
+public class GetTopicsByCommandService extends BaseHandler {
 
     public void get(VkCallback.BodyMessage body, User user) {
         System.out.println("Обрабатываем получение топиков по команде");
@@ -19,7 +19,7 @@ public class GetTopicByCommandService extends BaseHandler {
                 "Выберите топик, который хотите посмотреть", keyboard);
 
         lastIncommingAttachmentMap.remove(user.getVkId());
-        prevUserActionMap.put(user.getVkId(), Action.GET_TOPIC_BY_COMMAND);
+        userActionMap.put(user.getVkId(), Action.GET_TOPIC_ATTACHMENTS);
     }
 
 }

@@ -15,23 +15,24 @@ public class Keyboard {
         buttons = new ArrayList<>();
 
         String readPayload = "{ \"attachment_id\" : " + AttachmentId + ", \"isRead\": \"yes\" "
-                + ", \"prevAction\": \"" + Action.GET_ATTACHMENT_BY_INDEX.name() + "\" } ";
-        String nonReadPayload = "{ \"attachment_id\" : " + AttachmentId + ", \"isRead\": \"yes\" "
-                + ", \"prevAction\": \"" + Action.GET_ATTACHMENT_BY_INDEX.name() + "\" } ";
+                + ", \"neededAction\": \"" + Action.SET_READ_STATUS.name() + "\" } ";
+        String nonReadPayload = "{ \"attachment_id\" : " + AttachmentId + ", \"isRead\": \"no\" "
+                + ", \"neededAction\": \"" + Action.SET_READ_STATUS.name() + "\" } ";
         TextButton read = new TextButton("Я прочитал", readPayload);
         TextButton nonRead = new TextButton("Я не прочитал", nonReadPayload);
         buttons.add(Arrays.asList(read, nonRead));
+        buttons.add(Collections.singletonList(new TextButton("/темы (прочитать другое)")));
     }
 
     public static Keyboard keyboardForGetTopic(List<Topic> topics) {
-        return new Keyboard(topics, Action.GET_TOPIC_BY_COMMAND);
+        return new Keyboard(topics, Action.GET_TOPIC_ATTACHMENTS);
     }
 
     public static Keyboard keyboardForSetTopic(List<Topic> topics) {
-        return new Keyboard(topics, Action.SET_ATTACHMENT_NAME);
+        return new Keyboard(topics, Action.SET_ATTACHMENT_TOPIC);
     }
 
-    private Keyboard(List<Topic> topics, Action prevAction) {
+    private Keyboard(List<Topic> topics, Action neededAction) {
         buttons = new ArrayList<>();
 
         if (topics != null) {
@@ -41,7 +42,7 @@ public class Keyboard {
             for (int i = 0; i < size; i++) {
                 current = topics.get(i);
                 buffer.add(new TextButton(current.getName(), "{ \"topic_id\" : " + current.getId()
-                        + ", \"prevAction\": \"" + prevAction.name() + "\" } "));
+                        + ", \"neededAction\": \"" + neededAction.name() + "\" } "));
                 if ((i != 0 && (i + 1) % DEFAULT_COUNT_BUTTON_ON_LINE == 0) || i == size - 1) {
                     buttons.add(buffer);
                     buffer = new ArrayList<>();

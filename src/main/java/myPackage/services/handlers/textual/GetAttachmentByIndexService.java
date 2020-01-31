@@ -1,4 +1,4 @@
-package myPackage.services.handlers;
+package myPackage.services.handlers.textual;
 
 import myPackage.DAO.AttachmentDao;
 import myPackage.entities.Attachment;
@@ -6,6 +6,7 @@ import myPackage.entities.Keyboard;
 import myPackage.entities.User;
 import myPackage.entities.VkCallback;
 import myPackage.enums.Action;
+import myPackage.services.handlers.BaseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,13 +32,13 @@ public class GetAttachmentByIndexService extends BaseHandler {
             if (attachmentId == null)
                 throw new IndexOutOfBoundsException();
 
-            Attachment attachment = attachmentDao.findOne(attachmentId);
+            Attachment attachment = attachmentDao.findById(attachmentId);
             Keyboard keyboard = new Keyboard(attachmentId);
 
             messageSenderService.send(user.getVkId(), attachment, keyboard);
 
             lastAttachmentsByOrderMap.remove(user.getId());
-            prevUserActionMap.put(user.getId(), Action.GET_ATTACHMENT_BY_INDEX);
+            userActionMap.put(user.getId(), Action.SET_READ_STATUS);
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
             System.out.println(e.getClass().getName());
             messageSenderService.send(user.getVkId(),

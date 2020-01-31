@@ -1,6 +1,6 @@
 package myPackage.services.handlers.keyboard;
 
-import myPackage.DAO.TopicDao;
+import myPackage.DAO.AttachmentDao;
 import myPackage.entities.*;
 import myPackage.enums.Action;
 import myPackage.services.handlers.BaseHandler;
@@ -14,10 +14,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
-public class GetAttachmentsByKeyboardService extends BaseHandler {
+public class GetTopicAttachments extends BaseHandler {
 
     @Autowired
-    private TopicDao topicDao;
+    private AttachmentDao attachmentDao;
 
     @Autowired
     private ConcurrentHashMap<Integer, Map<Integer, Integer>> lastAttachmentsByOrderMap;
@@ -27,23 +27,27 @@ public class GetAttachmentsByKeyboardService extends BaseHandler {
 
         Integer topicId = (Integer) body.getPayload().get("topic_id");
 
-        Topic topic = topicDao.findOne(topicId);
+        List<Attachment> attachments = attachmentDao.getNotRead(topicId);
 
-        List<Attachment> attachments = topic.getAttachments();
+        if (attachments.isEmpty()) {
+            messageSenderService.send(user.getVkId(), "В этом топике непрочитанные вложения отсутствуют.");
+            userActionMap.remove(user.getId());
+            return;
+        }
 
         StringBuilder message = new StringBuilder("Введите номер вложения, которое хотите просмотреть: <br>");
 
         AtomicInteger i = new AtomicInteger(0);
         Map<Integer, Integer> indexForAttachmentId = new HashMap<>();
         attachments.forEach((attachment) -> {
-            message.append(i.getAndIncrement()).append(". ").append(attachment.getName()).append("<br>");
+            i.incrementAndGet();
+            message.append(i.get()).append(". ").append(attachment.getName() != null ?
+                    attachment.getName() : "Без названия").append("<br>");
             indexForAttachmentId.put(i.get(), attachment.getId());
         });
 
-        // написать клаву/текстовый ответ + продумать схему для клавиатуры
-        //заменить String выше на StringBuilder
         messageSenderService.send(user.getVkId(), message.toString());
-        prevUserActionMap.put(user.getId(), Action.GET_ATTACHMENTS_BY_KEYBOARD);
+        userActionMap.put(user.getId(), Action.GET_ATTACHMENT_BY_INDEX);
         lastAttachmentsByOrderMap.put(user.getId(), indexForAttachmentId);
     }
 

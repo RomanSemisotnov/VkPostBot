@@ -19,7 +19,7 @@ public class DefineActionService {
     @Autowired
     private Pattern getTopicCommandPattern;
 
-    public Action define(VkCallback.BodyMessage bodyMessage, Action prevAction) {
+    public Action define(VkCallback.BodyMessage bodyMessage, Action neededAction) {
         if (bodyMessage.getAttachment() != null) // we got attachment
             return Action.ATTACHMENT_HANDLER;
 
@@ -30,26 +30,15 @@ public class DefineActionService {
                 return Action.ADD_TOPIC_BY_COMMAND;
 
             if (getTopicCommandPattern.matcher(message.toLowerCase()).matches())
-                return Action.GET_TOPIC_BY_COMMAND;
+                return Action.GET_TOPICS_BY_COMMAND;
 
         }
 
-        if (bodyMessage.getPayload().size() != 0 && bodyMessage.getPayload().containsKey("prevAction")) {
+        if (bodyMessage.getPayload().containsKey("neededAction")) // we got message from keyboard
+            return Action.valueOf((String) bodyMessage.getPayload().get("neededAction"));
 
-            Action action = Action.valueOf((String) bodyMessage.getPayload().get("prevAction"));
-            if (action == Action.SET_ATTACHMENT_NAME)
-                return Action.SET_ATTACHMENT_TOPIC_BY_KEYBOARD;
-
-            if (action == Action.GET_TOPIC_BY_COMMAND)
-                return Action.GET_ATTACHMENTS_BY_KEYBOARD;
-
-        }
-
-        if (prevAction == Action.ATTACHMENT_HANDLER)
-            return Action.SET_ATTACHMENT_NAME;
-
-        if (prevAction == Action.GET_ATTACHMENTS_BY_KEYBOARD)
-            return Action.GET_ATTACHMENT_BY_INDEX;
+        if (neededAction != null)
+            return neededAction;
 
         return Action.UNKNOWN_ACTION;
     }

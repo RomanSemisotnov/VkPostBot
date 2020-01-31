@@ -4,8 +4,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
 
-@Component
+@Repository
 public abstract class AbstractDAO<T> {
 
     private Class<T> entityClass;
@@ -25,7 +27,31 @@ public abstract class AbstractDAO<T> {
         this.entityClass = entityClass;
     }
 
-    public T findOne(int id) {
+    public List<T> find(TripleConsumer<CriteriaQuery<T>, CriteriaBuilder, Root> selecter) {
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+
+        CriteriaQuery<T> criteria = builder.createQuery(entityClass);
+        Root<T> root = criteria.from(entityClass);
+
+        selecter.accept(criteria, builder, root);
+
+        return session.createQuery(criteria).list();
+    }
+
+    public T findOne(TripleConsumer<CriteriaQuery<T>, CriteriaBuilder, Root> selecter) {
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+
+        CriteriaQuery<T> criteria = builder.createQuery(entityClass);
+        Root<T> root = criteria.from(entityClass);
+
+        selecter.accept(criteria, builder, root);
+
+        return session.createQuery(criteria).stream().findFirst().orElse(null);
+    }
+
+    public T findById(int id) {
         return (T) sessionFactory.openSession().get(entityClass, id);
     }
 
@@ -71,7 +97,7 @@ public abstract class AbstractDAO<T> {
     }
 
     public void deleteById(int id) {
-        T entity = findOne(id);
+        T entity = findById(id);
         delete(entity);
     }
 

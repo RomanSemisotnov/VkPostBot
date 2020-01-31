@@ -1,11 +1,11 @@
-package myPackage.services.handlers;
+package myPackage.services.handlers.textual;
 
 import myPackage.DAO.AttachmentDao;
 import myPackage.entities.Keyboard;
 import myPackage.entities.User;
 import myPackage.entities.VkCallback;
 import myPackage.enums.Action;
-import myPackage.enums.Command;
+import myPackage.services.handlers.BaseHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +31,11 @@ public class SetAttachmentNameService extends BaseHandler {
         Keyboard keyboard = Keyboard.keyboardForSetTopic(user.getTopics());
         String message = "Укажите тему, к которой хотите отнести этот пост, " +
                 "если такой темы нету, " +
-                "то введите новую тему в сообщении, используя в начале символ '" + Command.ADD_TOPIC.getValue() +
+                "то введите новую тему в сообщении, используя в начале символ '" + Action.ADD_TOPIC_BY_COMMAND.getCommand() +
                 "' , например ' + Новая тема '";
 
         messageSenderService.send(user.getVkId(), message, keyboard);
-        prevUserActionMap.put(user.getId(), Action.SET_ATTACHMENT_NAME);
+        userActionMap.put(user.getId(), Action.SET_ATTACHMENT_TOPIC);
     }
 
 }
