@@ -1,5 +1,6 @@
 package myPackage;
 
+import myPackage.config.VkConfig;
 import myPackage.entities.VkCallback;
 import myPackage.enums.Action;
 import myPackage.services.MainMessageHandlerService;
@@ -16,27 +17,33 @@ public class CallbackHandlerController {
     @Autowired
     private MainMessageHandlerService mainMessageHandlerService;
 
-    @Autowired
-    private ConcurrentHashMap<Integer, Action> prevUserActionMap;
+    /*  @Autowired
+      private ConcurrentHashMap<Integer, Action> prevUserActionMap;
 
-    @Autowired
-    private ConcurrentHashMap<Integer, Integer> lastIncommingAttachmentMap;
+      @Autowired
+      private ConcurrentHashMap<Integer, Integer> lastIncommingAttachmentMap;
 
-    @Autowired
-    private ConcurrentHashMap<Integer, Map<Integer, Integer>> lastAttachmentsByOrderMap;
+      @Autowired
+      private ConcurrentHashMap<Integer, Map<Integer, Integer>> lastAttachmentsByOrderMap;
 
-    @GetMapping
-    public void get() {
-        System.out.println(prevUserActionMap);
-        System.out.println(lastIncommingAttachmentMap);
-        System.out.println(lastAttachmentsByOrderMap);
-    }
-
+      @GetMapping
+      public void get() {
+          System.out.println(prevUserActionMap);
+          System.out.println(lastIncommingAttachmentMap);
+          System.out.println(lastAttachmentsByOrderMap);
+      }
+  */
     /*
     сделать так, чтобы вложения без топиков, были в 'Без топика', при представлении
      */
+    @Autowired
+    private VkConfig vkConfig;
+
     @PostMapping
-    public VkCallback execute(@RequestBody VkCallback callback) {
+    public VkCallback execute(@RequestBody VkCallback callback) throws Exception {
+
+        if (!callback.getSecret().equals(vkConfig.getSecret()))
+            throw new Exception();
 
         if (callback.getType().equals("message_new")) {
             mainMessageHandlerService.handle(callback.getBodyMessage());
