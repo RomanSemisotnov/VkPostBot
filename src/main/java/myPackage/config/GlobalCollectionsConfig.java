@@ -1,5 +1,6 @@
 package myPackage.config;
 
+import myPackage.enums.Action;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,6 +22,15 @@ public class GlobalCollectionsConfig {
     @Bean
     public ConcurrentHashMap<Integer, Map<Integer, Integer>> lastAttachmentsByOrderMap() {
         return new ConcurrentHashMap<Integer, Map<Integer, Integer>>();
+    }
+
+    /*
+  key - user_id
+  value - action, which user chould execute
+   */
+    @Bean
+    public ConcurrentHashMap<Integer, Action> userActionMap() {
+        return new ConcurrentHashMap<>();
     }
 
 }

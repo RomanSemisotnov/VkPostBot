@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiConsumer;
 
 @Configuration
@@ -68,15 +67,6 @@ public class ActionConfig {
 
         actions.put(Action.UNKNOWN_ACTION, unknownActionHandlerService::handle);
         return actions;
-    }
-
-    /*
-   key - user_id
-   value - action, which user chould execute
-    */
-    @Bean
-    public ConcurrentHashMap<Integer, Action> userActionMap() {
-        return new ConcurrentHashMap<>();
     }
 
 }
