@@ -2,13 +2,9 @@ package myPackage;
 
 import myPackage.config.VkConfig;
 import myPackage.entities.VkCallback;
-import myPackage.enums.Action;
 import myPackage.services.MainMessageHandlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping("/")
@@ -33,13 +29,16 @@ public class CallbackHandlerController {
           System.out.println(lastAttachmentsByOrderMap);
       }
   */
-    /*
-    сделать так, чтобы вложения без топиков, были в 'Без топика', при представлении
-     */
+
+    @PostMapping
+    public String success(){
+        return "877dd7b6";
+    }
+
     @Autowired
     private VkConfig vkConfig;
 
-    @PostMapping
+ /*   @PostMapping
     public VkCallback execute(@RequestBody VkCallback callback) throws Exception {
 
         if (!callback.getSecret().equals(vkConfig.getSecret()))
@@ -50,6 +49,6 @@ public class CallbackHandlerController {
         }
 
         return callback;
-    }
+    }*/
 
 }
