@@ -30,16 +30,16 @@ public class CallbackHandlerController {
       }
   */
 
-    @PostMapping
+ /*   @PostMapping
     public String success(){
         return "877dd7b6";
-    }
+    }*/
 
     @Autowired
     private VkConfig vkConfig;
 
- /*   @PostMapping
-    public VkCallback execute(@RequestBody VkCallback callback) throws Exception {
+    @PostMapping
+    public String execute(@RequestBody VkCallback callback) throws Exception {
 
         if (!callback.getSecret().equals(vkConfig.getSecret()))
             throw new Exception();
@@ -48,7 +48,7 @@ public class CallbackHandlerController {
             mainMessageHandlerService.handle(callback.getBodyMessage());
         }
 
-        return callback;
-    }*/
+        return "ok";
+    }
 
 }
