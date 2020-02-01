@@ -1,6 +1,7 @@
 package myPackage.services.handlers;
 
 import myPackage.DAO.AttachmentDao;
+import myPackage.DAO.TopicDao;
 import myPackage.entities.Attachment;
 import myPackage.entities.User;
 import myPackage.entities.VkCallback;
@@ -14,6 +15,9 @@ public class AttachmentHandlerService extends BaseHandler {
     @Autowired
     private AttachmentDao attachmentDao;
 
+    @Autowired
+    private TopicDao topicDao;
+
     public void handle(VkCallback.BodyMessage body, User user) {
         System.out.println("Обработка добавления attachment");
         Attachment attachment = body.getAttachment();
@@ -25,7 +29,8 @@ public class AttachmentHandlerService extends BaseHandler {
             return;
         }
 
-        Integer id = attachmentDao.save(body.getAttachment());
+        attachment.setTopicId(topicDao.findDefault(user.getId()));
+        Integer id = attachmentDao.save(attachment);
         lastIncommingAttachmentMap.put(user.getId(), id);
 
         messageSenderService.send(user.getVkId(), "Как вы хотите назвать данное вложение?");

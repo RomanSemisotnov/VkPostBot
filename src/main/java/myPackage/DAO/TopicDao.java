@@ -10,4 +10,20 @@ public class TopicDao extends AbstractDAO<Topic> {
         setEntityClass(Topic.class);
     }
 
+    public Integer findDefault(int userId) {
+        Topic topic = findOne((criteriaQuery, builder, root) -> {
+            criteriaQuery
+                    .where(builder.equal(root.get("userId"), userId))
+                    .where(builder.equal(root.get("name"), "Без темы"));
+        });
+
+        Integer topicId;
+        if (topic == null)
+            topicId = save(new Topic("Без темы", userId));
+        else
+            topicId = topic.getId();
+
+        return topicId;
+    }
+
 }

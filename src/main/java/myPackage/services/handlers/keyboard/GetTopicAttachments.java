@@ -39,6 +39,7 @@ public class GetTopicAttachments extends BaseHandler {
 
         AtomicInteger i = new AtomicInteger(0);
         Map<Integer, Integer> indexForAttachmentId = new HashMap<>();
+        System.out.println(attachments);
         attachments.forEach((attachment) -> {
             i.incrementAndGet();
             message.append(i.get()).append(". ").append(attachment.getName() != null ?

@@ -28,8 +28,7 @@ public class Topic {
     @OneToMany(mappedBy = "topic", fetch = FetchType.LAZY)
     private List<Attachment> attachments;
 
-    public Topic() {
-    }
+    public Topic(){}
 
     public Topic(String name, int userId) {
         this.name = name;

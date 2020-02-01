@@ -16,7 +16,7 @@ public class AttachmentDao extends AbstractDAO<Attachment> {
 
     public List<Attachment> getNotRead(Integer topicId) {
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("select attachment.id, attachment.name from Attachment attachment " +
+        Query<Attachment> query = session.createQuery("select attachment from Attachment attachment " +
                 "where attachment.topicId = :topicId and attachment.isRead = false");
         query.setParameter("topicId", topicId);
 

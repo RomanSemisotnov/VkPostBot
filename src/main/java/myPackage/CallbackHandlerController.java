@@ -32,6 +32,9 @@ public class CallbackHandlerController {
         System.out.println(lastAttachmentsByOrderMap);
     }
 
+    /*
+    сделать так, чтобы вложения без топиков, были в 'Без топика', при представлении
+     */
     @PostMapping
     public VkCallback execute(@RequestBody VkCallback callback) {
 
