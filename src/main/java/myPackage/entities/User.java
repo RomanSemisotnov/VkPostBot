@@ -15,10 +15,11 @@ public class User {
     @Column(name = "vk_id")
     private int vkId;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Topic> topics;
 
-    public User() { }
+    public User() {
+    }
 
     public User(int vkId) {
         this.vkId = vkId;
