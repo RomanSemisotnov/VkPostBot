@@ -3,8 +3,12 @@ package myPackage;
 import myPackage.config.VkConfig;
 import myPackage.entities.VkCallback;
 import myPackage.services.MainMessageHandlerService;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -35,7 +39,17 @@ public class CallbackHandlerController {
         return "877dd7b6";
     }
 */
+
+
     @Autowired
+    protected SessionFactory sessionFactory;
+    @GetMapping
+    public List execute() {
+        Session session = sessionFactory.openSession();
+        return session.createSQLQuery("select * from users").list();
+    }
+
+/*    @Autowired
     private VkConfig vkConfig;
 
     @PostMapping
@@ -50,5 +64,5 @@ public class CallbackHandlerController {
 
         return "ok";
     }
-
+*/
 }
