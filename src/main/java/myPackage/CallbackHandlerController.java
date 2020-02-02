@@ -40,7 +40,7 @@ public class CallbackHandlerController {
     @Autowired
     private VkConfig vkConfig;
 
-    @GetMapping
+    @PostMapping
     public String execute(@RequestBody VkCallback callback) throws Exception {
 
         if (!callback.getSecret().equals(vkConfig.getSecret()))
