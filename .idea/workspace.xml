@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="commit">
+    <list default="true" id="f3972c1e-3d5d-4527-97fe-2321c6d602f6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/CallbackHandlerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/CallbackHandlerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/myPackage/DAO/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/myPackage/DAO/UserDao.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -404,7 +404,7 @@
       <workItem from="1580403785116" duration="10402000" />
       <workItem from="1580420665462" duration="66000" />
       <workItem from="1580459406070" duration="28353000" />
-      <workItem from="1580547727159" duration="24785000" />
+      <workItem from="1580547727159" duration="26411000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1578652793740</created>
@@ -742,7 +742,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580648794681</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="commit">
+      <created>1580650426343</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1580650426343</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

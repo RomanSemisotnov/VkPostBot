@@ -17,11 +17,15 @@ public class UserDao extends AbstractDAO<User> {
         Query<User> query = session.createQuery("select user from User user where user.vkId = :vk_id");
         query.setParameter("vk_id", vkId);
 
-        return query.stream().findFirst().orElseGet(() -> {
+        User user = query.getSingleResult();
+        if(user == null){
             User newUser = new User(vkId);
             session.save(newUser);
             return newUser;
-        });
+        }else{
+            return user;
+        }
+
     }
 
 }
