@@ -2,13 +2,13 @@ package myPackage;
 
 import myPackage.config.VkConfig;
 import myPackage.entities.VkCallback;
+import myPackage.enums.Action;
 import myPackage.services.MainMessageHandlerService;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping("/")
@@ -17,39 +17,32 @@ public class CallbackHandlerController {
     @Autowired
     private MainMessageHandlerService mainMessageHandlerService;
 
-    /*  @Autowired
-      private ConcurrentHashMap<Integer, Action> prevUserActionMap;
+    @Autowired
+    private ConcurrentHashMap<Integer, Action> prevUserActionMap;
 
-      @Autowired
-      private ConcurrentHashMap<Integer, Integer> lastIncommingAttachmentMap;
+    @Autowired
+    private ConcurrentHashMap<Integer, Integer> lastIncommingAttachmentMap;
 
-      @Autowired
-      private ConcurrentHashMap<Integer, Map<Integer, Integer>> lastAttachmentsByOrderMap;
+    @Autowired
+    private ConcurrentHashMap<Integer, Map<Integer, Integer>> lastAttachmentsByOrderMap;
 
-      @GetMapping
-      public void get() {
-          System.out.println(prevUserActionMap);
-          System.out.println(lastIncommingAttachmentMap);
-          System.out.println(lastAttachmentsByOrderMap);
-      }
-  */
-
-  /*  @PostMapping
-    public String success() {
-        return "877dd7b6";
+    @GetMapping("/prevUserActionMap")
+    public ConcurrentHashMap<Integer, Action> get1() {
+        return prevUserActionMap;
     }
-*/
+
+    @GetMapping("/prevUserActionMap")
+    public ConcurrentHashMap<Integer, Integer> get2() {
+        return lastIncommingAttachmentMap;
+    }
+
+    @GetMapping("/prevUserActionMap")
+    public ConcurrentHashMap<Integer, Map<Integer, Integer>> get3() {
+        return lastAttachmentsByOrderMap;
+    }
 
 
     @Autowired
-    protected SessionFactory sessionFactory;
-    @GetMapping
-    public List execute() {
-        Session session = sessionFactory.openSession();
-        return session.createSQLQuery("select * from users").list();
-    }
-
-/*    @Autowired
     private VkConfig vkConfig;
 
     @PostMapping
@@ -64,5 +57,5 @@ public class CallbackHandlerController {
 
         return "ok";
     }
-*/
+
 }
