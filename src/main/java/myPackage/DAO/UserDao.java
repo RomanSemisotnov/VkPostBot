@@ -14,7 +14,7 @@ public class UserDao extends AbstractDAO<User> {
 
     public User findOrCreateByVkId(int vkId) {
         Session session = sessionFactory.openSession();
-        Query<User> query = session.createQuery("select user from User user where user.vkId = : vk_id");
+        Query<User> query = session.createQuery("select user from User user where user.vkId = :vk_id");
         query.setParameter("vk_id", vkId);
 
         return query.stream().findFirst().orElseGet(() -> {
