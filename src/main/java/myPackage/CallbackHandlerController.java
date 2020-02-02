@@ -13,10 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @RestController
 @RequestMapping("/")
 public class CallbackHandlerController {
-
-    @Autowired
-    private MainMessageHandlerService mainMessageHandlerService;
-
+    /*
     @Autowired
     private ConcurrentHashMap<Integer, Action> prevUserActionMap;
 
@@ -39,8 +36,10 @@ public class CallbackHandlerController {
     @GetMapping("/prevUserActionMap")
     public ConcurrentHashMap<Integer, Map<Integer, Integer>> get3() {
         return lastAttachmentsByOrderMap;
-    }
+    }*/
 
+    @Autowired
+    private MainMessageHandlerService mainMessageHandlerService;
 
     @Autowired
     private VkConfig vkConfig;
