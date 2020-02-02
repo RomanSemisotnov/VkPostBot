@@ -2,14 +2,9 @@ package myPackage;
 
 import myPackage.config.VkConfig;
 import myPackage.entities.VkCallback;
-import myPackage.enums.Action;
 import myPackage.services.MainMessageHandlerService;
-import org.hibernate.annotations.GeneratorType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping("/")
@@ -46,18 +41,16 @@ public class CallbackHandlerController {
     private VkConfig vkConfig;
 
     @GetMapping
-    public String execute() throws Exception {
+    public String execute(@RequestBody VkCallback callback) throws Exception {
 
-        return System.getProperty("java.version");
-
-     /*   if (!callback.getSecret().equals(vkConfig.getSecret()))
+        if (!callback.getSecret().equals(vkConfig.getSecret()))
             throw new Exception();
 
         if (callback.getType().equals("message_new")) {
             mainMessageHandlerService.handle(callback.getBodyMessage());
         }
 
-        return "ok";*/
+        return "ok";
     }
 
 }
