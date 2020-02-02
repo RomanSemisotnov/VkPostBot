@@ -46,7 +46,7 @@ public class CallbackHandlerController {
     private VkConfig vkConfig;
 
     @GetMapping
-    public String execute(@RequestBody VkCallback callback) throws Exception {
+    public String execute() throws Exception {
 
         return System.getProperty("java.version");
 
